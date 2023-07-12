@@ -19,7 +19,7 @@ const signup = async(e)=>{
   e.preventDefault();
   // console.log(formValues);
   try {
-    const response = await axios.post("http://192.168.0.100:5000/api/signup",formValues);
+    const response = await axios.post("http://192.168.18.34:5000/api/signup",formValues);
     if (response) {
       console.log(response);
       toast.success("Signup Successful.");

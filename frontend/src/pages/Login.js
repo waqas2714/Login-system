@@ -21,7 +21,7 @@ const Login = () => {
     // console.log(formValues);
     try {
       const response = await axios.post(
-        "http://192.168.0.100:5000/api/login",
+        "http://192.168.18.34:5000/api/login",
         formValues
       );
       if (response) {
@@ -42,7 +42,9 @@ const Login = () => {
         if (!Token) {
           return
         }
-        const validToken = await axios.post("http://192.168.0.100:5000/api/tokenCheck",{token : Token});
+        const validToken = await axios.get("http://192.168.18.34:5000/api/tokenCheck",{headers:{
+          'token' : Token
+        }});
         if (validToken.data.authentic){
            navigate("/home");
        }
